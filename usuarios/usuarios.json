@@ -1,0 +1,18 @@
+[
+  {
+    "nombre": "Pedro",
+    "email": "pedroalf@gmail.com",
+    "apellidos": "Barrado",
+    "contrasena": "adsf",
+    "telefono": "687511114",
+    "edad": 23
+  },
+  {
+    "nombre": "Pedro",
+    "email": "pedroalf@gmail.com",
+    "apellidos": "Barrado",
+    "contrasena": "asdf",
+    "telefono": "687511114",
+    "edad": 88
+  }
+]
