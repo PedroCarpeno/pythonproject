@@ -7,7 +7,7 @@
         "request": "launch",
         "module": "flask",
         "env": {
-          "FLASK_APP": "${workspaceFolder}/MyWeb.py",
+          "FLASK_APP": "${workspaceFolder}/Myweb.py",
           "FLASK_ENV": "development",
           "FLASK_RUN_EXTRA_FILES": "${workspaceFolder}/app",
           "FLASK_RUN_PORT": "5000"

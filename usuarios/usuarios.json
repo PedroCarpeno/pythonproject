@@ -1,18 +1,29 @@
 [
   {
+    "id": 2,
     "nombre": "Pedro",
     "email": "pedroalf@gmail.com",
     "apellidos": "Barrado",
     "contrasena": "adsf",
     "telefono": "687511114",
-    "edad": 23
+    "edad": 34
   },
   {
+    "id": 3,
     "nombre": "Pedro",
     "email": "pedroalf@gmail.com",
     "apellidos": "Barrado",
+    "contrasena": "adsf",
+    "telefono": "687511114",
+    "edad": 90
+  },
+  {
+    "id": 4,
+    "nombre": "adsf",
+    "email": "asdf@gmail.com",
+    "apellidos": "adsf",
     "contrasena": "asdf",
     "telefono": "687511114",
-    "edad": 88
+    "edad": 25
   }
 ]

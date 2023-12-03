@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4caf50;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+
+        a.return-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #d0f904;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Editar Usuario</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form method="POST" action="{{ url_for('editar_usuario', usuario_id=usuario.id) }}">
+        <label for="email">Email:</label>
+        <input type="text" name="email" value="{{ usuario.email }}" required><br>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ usuario.nombre }}" required><br>
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" name="apellidos" value="{{ usuario.apellidos }}" required><br>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" name="contrasena" value="{{ usuario.contrasena }}" required><br>
+        <label for="telefono">Teléfono:</label>
+        <input type="text" name="telefono" value="{{ usuario.telefono }}" required><br>
+        <label for="edad">Edad:</label>
+        <input type="text" name="edad" value="{{ usuario.edad }}" required><br>
+        {{ formulario_edicion.csrf_token }}
+        <input type="submit" value="Guardar Cambios">
+    </form>
+    <a href="{{ url_for('index') }}" class="return-link">Volver al Menú</a>
+</body>
+</html>

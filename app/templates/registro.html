@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #d0f904;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4caf50;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+
+        a.return-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #d0f904;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        // Función para limpiar el formulario después de enviarlo con éxito
+        function limpiarFormulario() {
+            document.getElementById("registro").reset();
+        }
+    </script>
+</head>
+<body>
+    <h1>Registro</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('procesar_formulario_de_registro') }}" id="registro">
+        {{ formularioDeRegistro.hidden_tag() }}
+        <label for="Email">Correo Electrónico:</label>
+        {{ formularioDeRegistro.email(size=20) }}
+        <label for="Nombre">Nombre:</label>
+        {{ formularioDeRegistro.nombre(size=20) }}
+        <label for="Apellidos">Apellidos:</label>
+        {{ formularioDeRegistro.apellidos(size=20) }}
+        <label for="Contraseña">Contraseña:</label>
+        {{ formularioDeRegistro.contrasena(size=20) }}
+        <label for="Teléfono">Teléfono:</label>
+        {{ formularioDeRegistro.telefono(size=20) }}
+        <label for="Edad">Edad:</label>
+        {{ formularioDeRegistro.edad(size=20) }}
+        {{ formularioDeRegistro.enviar }}
+    </form>
+    <a href="{{ url_for('index') }}" class="return-link">Volver al Menú</a>
+</body>
+</html>
